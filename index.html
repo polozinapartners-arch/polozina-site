@@ -6,6 +6,11 @@
 <meta name="description" content="Polozina & Partners - персональное бухгалтерское и налоговое сопровождение компаний в Ташкенте: полный цикл учёта, ВЭД, МСФО, восстановление учёта.">
 <title>Polozina &amp; Partners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:title" content="Polozina & Partners - главный бухгалтер, которому можно доверить учёт">
+<meta property="og:description" content="Персональное бухгалтерское и налоговое сопровождение компаний в Ташкенте.">
+<meta property="og:image" content="https://polozina.uz/img/portrait-cut2.png">
+<meta name="theme-color" content="#f4eee4">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Manrope:wght@400;500;600;700&display=swap">
 <style>
   /* Layout: a wide photo band that melts into paper, same as the LinkedIn cover; below it a calm ledger of sections. One deliberate light look, matched to the cover. */
@@ -27,7 +32,10 @@
     --gutter-r: max(16px, env(safe-area-inset-right, 0px));
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html, body { overflow-x: hidden; }
+  img { max-width: 100%; height: auto; }
+  section[id], [id="packs"], [id="services"] { scroll-margin-top: 90px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 var(--body); }
   h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; line-height: 1.16; text-wrap: balance; letter-spacing: -0.01em; }
@@ -194,7 +202,7 @@
         <a class="btn btn-line" href="#packs">Пакеты услуг</a>
       </div>
     </div>
-    <img class="hero-portrait" src="img/portrait-cut2.png" alt="Надежда Полозина за работой">
+    <img class="hero-portrait" src="img/portrait-cut2.png" width="716" height="950" fetchpriority="high" decoding="async" alt="Надежда Полозина за работой">
   </div>
 </div>
 
@@ -250,7 +258,7 @@
     <div class="pack">
       <div class="tag">Проект</div>
       <h3>Восстановление учёта</h3>
-      <div class="price">$3 000</div>
+      <div class="price">$3 000</div>
       <div class="per">за каждый восстановленный год, без НДС</div>
       <div class="for">Для компаний, у которых база запущена или отчётность сдана с ошибками</div>
       <ul>
@@ -258,7 +266,7 @@
         <li>Восстановление бухгалтерского и налогового учёта</li>
         <li>Исправление и сдача просроченной отчётности</li>
         <li>План работ и итоговая стоимость фиксируются до начала</li>
-        <li>Стоимость считается по годам: например, восстановление с 2020 по 2025 год - 6 лет - $18 000</li>
+        <li>Стоимость считается по годам: например, восстановление с 2020 по 2025 год - 6 лет - $18 000</li>
       </ul>
     </div>
   </div>
