@@ -11,7 +11,7 @@
 <meta property="og:description" content="Персональное бухгалтерское и налоговое сопровождение компаний в Ташкенте.">
 <meta property="og:image" content="https://polozina.uz/img/portrait-cut2.png">
 <meta name="theme-color" content="#f4eee4">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
   /* Layout: a wide photo band that melts into paper, same as the LinkedIn cover; below it a calm ledger of sections. One deliberate light look, matched to the cover. */
   :root {
@@ -26,8 +26,8 @@
     --champagne: #dcc49a;
     --warm-shadow: rgba(122, 94, 54, .22);
     --on-ink: #f6f1e8;
-    --display: "Literata", Georgia, "Times New Roman", serif;
-    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    --display: Calibri, "Carlito", "Segoe UI", Arial, sans-serif;
+    --body: Calibri, "Carlito", "Segoe UI", Arial, sans-serif;
     --gutter-l: max(16px, env(safe-area-inset-left, 0px));
     --gutter-r: max(16px, env(safe-area-inset-right, 0px));
   }
@@ -37,7 +37,7 @@
   img { max-width: 100%; height: auto; }
   section[id], [id="packs"], [id="services"] { scroll-margin-top: 90px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 var(--body); }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 18px/1.6 var(--body); }
   h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; line-height: 1.16; text-wrap: balance; letter-spacing: -0.01em; }
   h2 { font-size: clamp(28px, 3.3vw, 40px); }
   h3 { font-size: 20px; }
@@ -182,7 +182,8 @@
   .duo-card { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
   .duo-role { font-weight: 700; font-size: 15px; color: var(--ink); }
   .duo-card p, .duo-together { color: var(--soft-ink); }
-  .duo-together { max-width: 70ch; }
+  .duo-together { max-width: none; font-size: 16px; }
+  @media (min-width: 1100px) { .duo-together { white-space: nowrap; } }
   .duo-together b { color: var(--ink); }
   @media (max-width: 760px) { .duo { grid-template-columns: minmax(0, 1fr); } }
 </style>
