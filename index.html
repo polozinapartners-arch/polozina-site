@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Polozina & Partners - персональное бухгалтерское и налоговое сопровождение компаний в Ташкенте: полный цикл учёта, ВЭД, МСФО, восстановление учёта.">
+<title>Polozina &amp; Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: a wide photo band that melts into paper, same as the LinkedIn cover; below it a calm ledger of sections. One deliberate light look, matched to the cover. */
+  :root {
+    color-scheme: light;
+    --paper: #f4eee4;
+    --sheet: #fbf8f2;
+    --ink: #1b2a45;
+    --soft-ink: #4e5a6d;
+    --brass: #9a7b4f;
+    --line: #e2d8c7;
+    --sand: #e8dcc6;
+    --champagne: #dcc49a;
+    --warm-shadow: rgba(122, 94, 54, .22);
+    --on-ink: #f6f1e8;
+    --display: "Literata", Georgia, "Times New Roman", serif;
+    --body: "Manrope", "Helvetica Neue", Arial, sans-serif;
+    --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+    --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 var(--body); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; margin: 0; line-height: 1.16; text-wrap: balance; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(28px, 3.3vw, 40px); }
+  h3 { font-size: 20px; }
+  p { margin: 0; }
+  a { color: inherit; }
+  a:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+  .band { padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+  .wrap { max-width: 1120px; margin-inline: auto; }
+  .kicker { font-size: 13px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--brass); }
+  .lead { color: var(--soft-ink); font-size: 18px; max-width: 62ch; }
+  .sec { padding-block: clamp(56px, 7vw, 92px); }
+  .sec-head { display: grid; gap: 14px; margin-bottom: 36px; }
+
+  .btn { display: inline-block; padding: 14px 26px; border-radius: 4px; font-weight: 600; font-size: 16px; text-decoration: none; }
+  .btn-main { background: var(--ink); color: var(--on-ink); }
+  .btn-line { border: 1.5px solid var(--ink); color: var(--ink); }
+
+  .top { background: var(--sheet); border-bottom: 1px solid var(--line); }
+  .top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 18px; }
+  .brand { font-family: var(--display); font-size: 20px; font-weight: 600; }
+  .top small { font-size: 14px; color: var(--soft-ink); }
+
+  .hero { background: radial-gradient(60% 95% at 88% 18%, var(--champagne), transparent 72%), linear-gradient(115deg, var(--paper), var(--sand)); }
+  .hero-in { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 56px; align-items: center; padding-block: clamp(48px, 6vw, 80px); }
+  .hero-txt { display: grid; gap: 18px; }
+  .hero-txt .kicker { font-size: clamp(19px, 1.8vw, 25px); font-weight: 700; letter-spacing: .2em; }
+  .hero-in img { width: 100%; max-width: 460px; height: auto; display: block; justify-self: end; align-self: end; margin-bottom: calc(-1 * clamp(48px, 6vw, 80px)); }
+  h1 { font-size: clamp(34px, 4vw, 52px); }
+  .rule { width: 92px; height: 2px; background: var(--brass); }
+  .hero-txt p { font-size: 18px; font-weight: 500; color: var(--soft-ink); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+
+  .who { background: var(--ink); color: var(--on-ink); }
+  .who .wrap { padding-block: 34px; }
+  .who p { font-family: var(--display); font-size: clamp(19px, 2.1vw, 25px); line-height: 1.4; max-width: 44ch; }
+
+  .risks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--line); margin-bottom: 36px; }
+  .risks div { padding: 26px 24px 26px 0; display: grid; gap: 8px; align-content: start; }
+  .risks div + div { border-left: 1px solid var(--line); padding-left: 24px; }
+  .risks p { font-size: 15px; color: var(--soft-ink); }
+  .ai { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+  .ai b { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.5vw, 30px); line-height: 1.25; display: block; }
+
+  .about { background: var(--sheet); }
+  .about-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 56px; align-items: center; }
+  .about-grid img { width: 100%; max-width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; border-radius: 4px; }
+  .about-txt { display: grid; gap: 16px; min-width: 0; }
+  .about-txt p { color: var(--soft-ink); }
+  .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; border-top: 1px solid var(--line); padding-top: 20px; margin-top: 8px; }
+  .facts b { font-family: var(--display); font-size: 32px; display: block; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .facts span { font-size: 14px; color: var(--soft-ink); }
+  .partner { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; }
+  .partner p { color: var(--soft-ink); }
+
+  .ledger { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 56px; }
+  .ledger li { break-inside: avoid; padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .systems { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 28px; font-size: 14px; font-weight: 600; color: var(--brass); }
+
+  .tariffs { margin-top: clamp(56px, 6vw, 80px); }
+  .packs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .pack { background: var(--sheet); border: 1px solid var(--line); border-radius: 4px; padding: 28px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+  .pack.main { border-color: var(--brass); box-shadow: 0 16px 40px var(--warm-shadow); }
+  .price { font-family: var(--display); font-weight: 600; font-size: 36px; line-height: 1.15; color: var(--brass); font-variant-numeric: tabular-nums; }
+  .per { font-size: 14px; color: var(--soft-ink); margin-bottom: 10px; }
+  .pack ul { margin: 0; padding-left: 18px; display: grid; gap: 7px; font-size: 15px; }
+
+  .start { background: var(--sheet); }
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: s; }
+  .step { display: grid; gap: 6px; align-content: start; border-top: 2px solid var(--ink); padding-top: 14px; }
+  .step::before { counter-increment: s; content: counter(s); font-family: var(--display); color: var(--brass); }
+  .step p { font-size: 15px; color: var(--soft-ink); }
+  .promise { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 62ch; gap: 40px; margin-top: 44px; }
+  .promise div { display: grid; gap: 6px; }
+  .promise p { font-size: 15px; color: var(--soft-ink); }
+
+  .contact { background: var(--ink); color: var(--on-ink); }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: center; padding-block: clamp(52px, 6vw, 80px); }
+  .contact-grid > div { display: grid; gap: 18px; justify-items: start; min-width: 0; }
+  .contact .btn-main { background: var(--on-ink); color: var(--ink); }
+  dl { margin: 0; display: grid; gap: 14px; min-width: 0; }
+  dt { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; opacity: .7; }
+  dd { margin: 0; font-size: 18px; font-weight: 600; overflow-wrap: anywhere; user-select: all; }
+  footer { padding-block: 22px; font-size: 13px; color: var(--soft-ink); text-align: center; }
+
+  @media (max-width: 860px) {
+    .hero-in { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .hero-in img { justify-self: start; }
+    .risks, .ai, .about-grid, .partner, .promise, .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .risks div, .risks div + div { padding: 20px 0; border-left: 0; }
+    .risks div + div { border-top: 1px solid var(--line); }
+    .ledger { columns: 1; }
+    .packs { grid-template-columns: minmax(0, 1fr); }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 480px) {
+    .steps, .facts { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  .figs { background: var(--ink); color: var(--on-ink); }
+  .figs .wrap { padding-block: 36px; display: grid; gap: 26px; }
+  .figs p { font-family: var(--display); font-size: clamp(18px, 1.9vw, 23px); line-height: 1.4; max-width: 60ch; }
+  .figrow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; border-top: 1px solid rgba(246,241,232,.22); padding-top: 22px; }
+  .figrow b { font-family: var(--display); font-size: 34px; line-height: 1.1; display: block; font-variant-numeric: tabular-nums; color: var(--champagne); }
+  .figrow span { font-size: 14px; opacity: .85; }
+  .for { font-size: 14px; color: var(--soft-ink); border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 8px; }
+  .pack .tag { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); }
+  .note { margin-top: 18px; font-size: 14px; color: var(--soft-ink); }
+  .comp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; }
+  .comp > div { display: grid; gap: 14px; align-content: start; min-width: 0; }
+  .comp p { color: var(--soft-ink); }
+  .qual { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; }
+  .qual div { border-top: 2px solid var(--brass); padding-top: 10px; display: grid; gap: 4px; }
+  .qual b { font-weight: 700; }
+  .qual span { font-size: 15px; color: var(--soft-ink); }
+  .exp { list-style: none; margin: 0; padding: 0; }
+  .exp li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .exp li b { display: block; }
+  .exp li span { font-size: 15px; color: var(--soft-ink); }
+  @media (max-width: 860px) {
+    .figrow, .comp { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+    .comp { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 480px) { .qual, .figrow { grid-template-columns: minmax(0, 1fr); } }
+  .partners { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; }
+  .partners > div { display: grid; gap: 14px; min-width: 0; align-content: start; }
+  .partners p { color: var(--soft-ink); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span { font-size: 13px; font-weight: 600; color: var(--brass); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; background: var(--paper); }
+  @media (max-width: 860px) { .partners { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
+  .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--sheet); border-bottom: 1px solid var(--line); box-shadow: 0 6px 18px rgba(122, 94, 54, .08); }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: var(--sheet); }
+  .top .wrap { padding-block: 12px; }
+  .brand { display: grid; gap: 2px; }
+  .brand small { font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--soft-ink); }
+  .top-contact { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .top-phone { font-weight: 700; font-size: 16px; font-variant-numeric: tabular-nums; user-select: all; white-space: nowrap; }
+  .btn-sm { padding: 10px 18px; font-size: 15px; }
+  @media (max-width: 600px) { .brand small { display: none; } .top-phone { font-size: 14px; } .btn-sm { padding: 8px 12px; font-size: 14px; } .top-contact { gap: 10px; } }
+</style>
+</head>
+<body>
+
+
+<div class="band top"><div class="wrap">
+  <div class="brand">Polozina &amp; Partners<small>Бухгалтерское и налоговое сопровождение · Ташкент</small></div>
+  <div class="top-contact">
+    <span class="top-phone">+998 90 133-08-08</span>
+    <a class="btn btn-main btn-sm" href="https://t.me/polozina_partners" target="_blank" rel="noopener">Написать в Telegram</a>
+  </div>
+</div></div>
+
+<div class="hero band">
+  <div class="hero-in wrap">
+    <div class="hero-txt">
+      <div class="kicker">Polozina &amp; Partners</div>
+      <h1>Главный бухгалтер, которому можно доверить учёт</h1>
+      <div class="rule"></div>
+      <p>Персональное бухгалтерское и налоговое сопровождение<br>Немного клиентов - всё внимание каждому</p>
+      <div class="actions">
+        <a class="btn btn-main" href="https://t.me/polozina_partners" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn btn-line" href="#packs">Пакеты услуг</a>
+      </div>
+    </div>
+    <img class="hero-portrait" src="img/portrait-cut2.png" alt="Надежда Полозина за работой">
+  </div>
+</div>
+
+<div class="band figs"><div class="wrap">
+  <p>Ведём учёт компаний, которым важны точность, сроки и личный контакт с бухгалтером: торговля, импорт и экспорт, производство, маркировка, валютные операции.</p>
+  <div class="figrow">
+    <div><b>9+</b><span>лет главным бухгалтером в Узбекистане</span></div>
+    <div><b>6</b><span>ключевых отраслей экономики Узбекистана: ВЭД, торговля, производство, автомобильный бизнес, общепит, HoReCa и отели</span></div>
+    <div><b>19+</b><span>лет главным бухгалтером у партнёра практики: ВЭД, таможня, валютный контроль</span></div>
+  </div>
+</div></div>
+
+<section class="band sec" id="packs"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">Пакеты услуг</div>
+    <h2>Выберите формат сопровождения</h2>
+    <p class="lead">Стоимость фиксируется в договоре. Точная цена зависит от числа операций, сотрудников и направлений учёта и определяется после знакомства с вашей базой.</p>
+  </div>
+  <div class="packs">
+    <div class="pack">
+      <div class="tag">Базовый</div>
+      <h3>Сопровождение</h3>
+      <div class="price">от $500</div>
+      <div class="per">в месяц, без НДС</div>
+      <div class="for">Для компаний с налаженным учётом и небольшим документооборотом</div>
+      <ul>
+        <li>Первичная документация и ЭСФ в Didox</li>
+        <li>Расчёт налогов и отчётность в my.soliq.uz</li>
+        <li>Расчёт зарплаты</li>
+        <li>Платёжные поручения в Банк-Клиенте</li>
+        <li>Консультации по текущим вопросам</li>
+        <li>На связи в рабочее время</li>
+      </ul>
+    </div>
+    <div class="pack main">
+      <div class="tag">Рекомендуем</div>
+      <h3>Полный цикл</h3>
+      <div class="price">от $900</div>
+      <div class="per">в месяц, без НДС</div>
+      <div class="for">Вы занимаетесь бизнесом. Мы отвечаем за то, чтобы бухгалтерия никогда не стала вашей проблемой.</div>
+      <ul>
+        <li>Весь учёт: ОС, ТМЦ, касса, банк</li>
+        <li>Отчётность во все органы: налоговая, mehnat, статистика</li>
+        <li>Зарплата и кадровый учёт без ограничений</li>
+        <li>ВЭД: контракты, таможенные платежи, валютный контроль</li>
+        <li>Маркировка Asl Belgisi</li>
+        <li>Сверки с контрагентами, инвентаризации, ДЗ и КЗ</li>
+        <li>Ежемесячный управленческий отчёт для собственника</li>
+        <li>Сопровождение налоговых проверок</li>
+        <li>Ответ в течение часа</li>
+      </ul>
+    </div>
+    <div class="pack">
+      <div class="tag">Проект</div>
+      <h3>Восстановление учёта</h3>
+      <div class="price">$3 000</div>
+      <div class="per">за каждый восстановленный год, без НДС</div>
+      <div class="for">Для компаний, у которых база запущена или отчётность сдана с ошибками</div>
+      <ul>
+        <li>Аудит текущего состояния базы</li>
+        <li>Восстановление бухгалтерского и налогового учёта</li>
+        <li>Исправление и сдача просроченной отчётности</li>
+        <li>План работ и итоговая стоимость фиксируются до начала</li>
+        <li>Стоимость считается по годам: например, восстановление с 2020 по 2025 год - 6 лет - $18 000</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Отдельно, по запросу: отчётность по МСФО, бюджетирование, сопровождение ликвидации компании.</p>
+</div></section>
+
+<section class="band sec about"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">Надежда Полозина · главный бухгалтер</div>
+    <h2>Опыт и профессиональные качества</h2>
+  </div>
+  <div class="comp">
+    <div>
+      <h3>Опыт</h3>
+      <ul class="exp">
+        <li><b>InterContinental Tashkent</b><span>учёт по стандартам международной сети, где точность документов обязательна</span></li>
+        <li><b>Hyundai Auto Asia</b><span>учёт в автомобильном бизнесе</span></li>
+        <li><b>Оптовая торговля, импорт, производство</b><span>ВЭД-контракты, таможня, валютный контроль, себестоимость</span></li>
+        <li><b>Восстановление учёта</b><span>приняла базу после аутсорсинговой компании с грубыми расхождениями и восстановила бухгалтерскую и налоговую отчётность с 2024 года</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Как я работаю</h3>
+      <div class="qual">
+        <div><b>Личная ответственность</b><span>Ваш учёт веду я сама, без передачи стажёрам.</span></div>
+        <div><b>Сроки</b><span>Ведём календарь отчётности и сдаём всё вовремя.</span></div>
+        <div><b>Прозрачность</b><span>Каждый месяц собственник получает понятный отчёт о финансах.</span></div>
+        <div><b>Конфиденциальность</b><span>Данные компании остаются между нами, работаем по NDA.</span></div>
+        <div><b>Любое состояние базы</b><span>Принимаю учёт после других бухгалтеров и навожу порядок.</span></div>
+        <div><b>Команда за спиной</b><span>В сложных вопросах подключаю партнёра с опытом главного бухгалтера 19+ лет.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="partners">
+    <div>
+      <div class="kicker">Партнёрская практика</div>
+      <h3>Экспертиза партнёра</h3>
+    </div>
+    <div>
+      <p>За вашим учётом стоит не один специалист. Партнёр практики - главный бухгалтер с 2007 года и магистр финансового менеджмента. Он вёл учёт таможенного склада, компаний-импортёров медицинского и лабораторного оборудования, экспортёров кондитерской продукции, металлопроката и вендинга.</p>
+      <p>Его сильная сторона - сложные операции и защита компании: внешнеэкономические контракты, таможенные платежи, валютный контроль, бюджетирование и сопровождение налоговых проверок. Ваш учёт веду я лично, а сложные вопросы решаем вместе.</p>
+      <div class="chips"><span>ВЭД и таможня</span><span>Валютный контроль</span><span>Налоговые проверки</span><span>Бюджетирование</span><span>Таможенный склад</span><span>Импорт и экспорт</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="band sec" id="services"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">Компетенции</div>
+    <h2>Что мы ведём</h2>
+  </div>
+  <ul class="ledger">
+    <li>Полное бухгалтерское и налоговое сопровождение компаний</li>
+    <li>Импорт и экспорт: учёт ВЭД-контрактов, таможенные платежи, валютный контроль</li>
+    <li>Учёт маркированной продукции (Asl Belgisi)</li>
+    <li>Учёт ОС, ТМЦ, кассы и банка, сверки, ДЗ и КЗ, инвентаризации</li>
+    <li>ЭСФ и первичные документы в Didox</li>
+    <li>Отчётность во все органы: my.soliq.uz, my.mehnat.uz, статистика</li>
+    <li>Зарплата и кадровый учёт</li>
+    <li>Ежемесячный управленческий отчёт для собственника</li>
+    <li>Бюджетирование</li>
+    <li>Отчётность по МСФО</li>
+    <li>Восстановление учёта и сдача просроченной отчётности</li>
+    <li>Подготовка к налоговым проверкам и сопровождение</li>
+    <li>Сопровождение ликвидации компании</li>
+  </ul>
+  <div class="systems"><span>1С 8.3</span><span>Didox</span><span>my.soliq.uz</span><span>my.mehnat.uz</span><span>E-ijara</span><span>Asl Belgisi</span><span>Банк-Клиент</span></div>
+</div></section>
+
+<section class="band sec about"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker">Контроль качества</div>
+    <h2>От каких рисков мы защищаем</h2>
+  </div>
+  <div class="risks">
+    <div><h3>Забытый отчёт</h3><p>Срок прошёл, а отчётность не сдана.</p></div>
+    <div><h3>Неверно проведённая операция</h3><p>Ошибка в базе всплывает через месяцы.</p></div>
+    <div><h3>Пропущенное изменение в законе</h3><p>Учёт ведётся по правилам, которые уже не действуют.</p></div>
+  </div>
+  <div class="ai">
+    <b>Опыт команды, усиленный искусственным интеллектом.</b>
+    <p class="lead">Такие ошибки потом обходятся компании штрафами и исправлением базы. Мой опыт и экспертиза партнёров вместе с современными ИИ-технологиями позволяют нам оперативно отслеживать изменения в налоговом, таможенном и валютном законодательстве. ИИ для нас - дополнительный помощник: он помогает избежать обычных человеческих ошибок, которые случаются у любого специалиста, а в спорных вопросах подсказывает нужные нормы законодательства, чтобы решение было точным. Поэтому мы работаем быстрее, качественнее и сводим вероятность ошибок к минимуму.</p>
+  </div>
+</div></section>
+
+<section class="band sec"><div class="wrap">
+
+  <div class="sec-head">
+    <div class="kicker">Как начинаем</div>
+    <h2>От знакомства до работы</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><h3>Знакомство</h3><p>Вы рассказываете о компании и задаче.</p></div>
+    <div class="step"><h3>Оценка учёта</h3><p>Смотрим текущее состояние учёта и объём работы.</p></div>
+    <div class="step"><h3>Договор</h3><p>Согласуем объём и стоимость, подписываем договор и NDA.</p></div>
+    <div class="step"><h3>Работа</h3><p>Принимаем учёт и ведём его с первого числа месяца или сразу.</p></div>
+  </div>
+  <div class="promise">
+    <div><h3>Конфиденциальность</h3><p>Работаем по официальному договору и NDA. Базы клиентов хранятся на наших серверах, ИИ-модели тоже работают локально на нашей инфраструктуре - финансовые данные компании не передаются третьим лицам.</p></div>
+  </div>
+</div></section>
+
+<section class="band contact"><div class="wrap contact-grid">
+  <div>
+    <h2>Обсудим ваш учёт</h2>
+    <a class="btn btn-main" href="https://t.me/polozina_partners" target="_blank" rel="noopener">Написать в Telegram</a>
+  </div>
+  <dl>
+    <div><dt>Телефон</dt><dd>+998 90 133-08-08</dd></div>
+    <div><dt>Telegram</dt><dd>@polozina_partners</dd></div>
+    <div><dt>Почта</dt><dd><a href="mailto:info@polozina.uz" style="color:inherit">info@polozina.uz</a></dd></div>
+  </dl>
+</div></section>
+
+<footer class="band">© 2026 Polozina &amp; Partners · Ташкент</footer>
+
+</body>
+</html>
