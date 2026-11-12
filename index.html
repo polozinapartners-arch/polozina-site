@@ -177,6 +177,14 @@
   .top-phone { font-weight: 700; font-size: 16px; font-variant-numeric: tabular-nums; user-select: all; white-space: nowrap; }
   .btn-sm { padding: 10px 18px; font-size: 15px; }
   @media (max-width: 600px) { .brand small { display: none; } .top-phone { font-size: 14px; } .btn-sm { padding: 8px 12px; font-size: 14px; } .top-contact { gap: 10px; } }
+  .partners { grid-template-columns: minmax(0, 1fr) !important; gap: 24px !important; }
+  .duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .duo-card { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+  .duo-role { font-weight: 700; font-size: 15px; color: var(--ink); }
+  .duo-card p, .duo-together { color: var(--soft-ink); }
+  .duo-together { max-width: 70ch; }
+  .duo-together b { color: var(--ink); }
+  @media (max-width: 760px) { .duo { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -301,15 +309,23 @@
     </div>
   </div>
   <div class="partners">
-    <div>
+    <div class="sec-head" style="margin-bottom:0">
       <div class="kicker">Партнёрская практика</div>
-      <h3>Экспертиза партнёра</h3>
+      <h3>Два главных бухгалтера, опыт которых дополняет друг друга</h3>
     </div>
-    <div>
-      <p>За вашим учётом стоит не один специалист. Партнёр практики - главный бухгалтер с 2007 года и магистр финансового менеджмента. Он вёл учёт таможенного склада, компаний-импортёров медицинского и лабораторного оборудования, экспортёров кондитерской продукции, металлопроката и вендинга.</p>
-      <p>Его сильная сторона - сложные операции и защита компании: внешнеэкономические контракты, таможенные платежи, валютный контроль, бюджетирование и сопровождение налоговых проверок. Ваш учёт веду я лично, а сложные вопросы решаем вместе.</p>
-      <div class="chips"><span>ВЭД и таможня</span><span>Валютный контроль</span><span>Налоговые проверки</span><span>Бюджетирование</span><span>Таможенный склад</span><span>Импорт и экспорт</span></div>
+    <div class="duo">
+      <div class="duo-card">
+        <div class="duo-role">Надежда Полозина · главный бухгалтер</div>
+        <p>Школа международных стандартов: InterContinental, Hyundai Auto Asia, торговля, импорт и производство. Отвечает за то, чтобы учёт был чистым и прозрачным каждый день.</p>
+        <div class="chips"><span>Полный цикл учёта</span><span>МСФО</span><span>Восстановление базы</span><span>Зарплата и кадры</span><span>Отчёт собственнику</span></div>
+      </div>
+      <div class="duo-card">
+        <div class="duo-role">Партнёр практики · главный бухгалтер</div>
+        <p>Главный бухгалтер с 2007 года, магистр финансового менеджмента: таможенный склад, импорт оборудования, экспорт, металлопрокат. Отвечает за сложные операции и защиту компании.</p>
+        <div class="chips"><span>ВЭД и таможня</span><span>Валютный контроль</span><span>Налоговые проверки</span><span>Бюджетирование</span><span>Импорт и экспорт</span></div>
+      </div>
     </div>
+    <p class="duo-together"><b>Вместе</b> мы закрываем весь цикл учёта компании любого профиля: ваш учёт ведёт Надежда лично, а каждый сложный вопрос проходит через двух главных бухгалтеров.</p>
   </div>
 </div></section>
 
