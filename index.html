@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Polozina & Partners - персональное бухгалтерское и налоговое сопровождение компаний в Ташкенте: полный цикл учёта, ВЭД, МСФО, восстановление учёта.">
+<link rel="alternate" hreflang="ru" href="https://polozina.uz/">
+<link rel="alternate" hreflang="en" href="https://polozina.uz/en/">
+<link rel="alternate" hreflang="x-default" href="https://polozina.uz/">
 <title>Polozina &amp; Partners</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -195,6 +198,9 @@
   .assist p { color: var(--soft-ink); }
   @media (max-width: 1000px) { .steps5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 480px) { .steps5 { grid-template-columns: minmax(0, 1fr); } }
+  .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; font-size: 13px; font-weight: 700; }
+  .lang a { padding: 6px 10px; text-decoration: none; color: var(--soft-ink); }
+  .lang a[aria-current="true"] { background: var(--ink); color: var(--on-ink); }
 </style>
 </head>
 <body>
@@ -203,6 +209,7 @@
 <div class="band top"><div class="wrap">
   <div class="brand">Polozina &amp; Partners<small>Бухгалтерское и налоговое сопровождение · Ташкент</small></div>
   <div class="top-contact">
+    <nav class="lang" aria-label="Language"><a href="/" data-l="ru" hreflang="ru" aria-current="true">RU</a><a href="/en/" data-l="en" hreflang="en">EN</a></nav>
     <span class="top-phone">+998 90 133-08-08</span>
     <a class="btn btn-main btn-sm" href="https://t.me/polozina_partners" target="_blank" rel="noopener">Написать в Telegram</a>
   </div>
@@ -417,5 +424,18 @@
 
 <footer class="band">© 2026 Polozina &amp; Partners · Ташкент</footer>
 
+<script>
+(function(){
+  var cur="ru", key="pp_lang";
+  function pick(l){ try{ localStorage.setItem(key,l); }catch(e){} }
+  document.querySelectorAll('.lang a').forEach(function(a){ a.addEventListener('click',function(){ pick(a.getAttribute('data-l')); }); });
+  var saved=null; try{ saved=localStorage.getItem(key); }catch(e){}
+  if(saved){ if(saved!==cur){ location.replace(saved==="en"?"/en/":"/"); } return; }
+  var langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""]).map(function(x){return String(x).toLowerCase().slice(0,2);});
+  var cis=["ru","uz","kk","ky","tg","be","uk","az","hy","ka"];
+  var want=langs.some(function(x){return cis.indexOf(x)>=0;})?"ru":"en";
+  if(want!==cur){ location.replace(want==="en"?"/en/":"/"); }
+})();
+</script>
 </body>
 </html>
