@@ -201,6 +201,9 @@
   .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; font-size: 13px; font-weight: 700; }
   .lang a { padding: 6px 10px; text-decoration: none; color: var(--soft-ink); }
   .lang a[aria-current="true"] { background: var(--ink); color: var(--on-ink); }
+  html.i18n-fade body :is(h1,h2,h3,p,li,small,dt,dd,b,.kicker,.tag,.per,.for,.price,.btn,.duo-role,.chips span,.lang) { opacity: 0; }
+  body :is(h1,h2,h3,p,li,small,dt,dd,b,.kicker,.tag,.per,.for,.price,.btn,.duo-role,.chips span,.lang) { transition: opacity .18s ease; }
+  @media (prefers-reduced-motion: reduce) { body * { transition: none !important; } }
 </style>
 </head>
 <body>
@@ -426,15 +429,51 @@
 
 <script>
 (function(){
-  var cur="en", key="pp_lang";
-  function pick(l){ try{ localStorage.setItem(key,l); }catch(e){} }
-  document.querySelectorAll('.lang a').forEach(function(a){ a.addEventListener('click',function(){ pick(a.getAttribute('data-l')); }); });
+  var key="pp_lang";
+  function cur(){ return document.documentElement.lang==="en"?"en":"ru"; }
+  function urlFor(l){ return l==="en"?"/en/":"/"; }
+  function save(l){ try{ localStorage.setItem(key,l); }catch(e){} }
   var saved=null; try{ saved=localStorage.getItem(key); }catch(e){}
-  if(saved){ if(saved!==cur){ location.replace(saved==="en"?"/en/":"/"); } return; }
-  var langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""]).map(function(x){return String(x).toLowerCase().slice(0,2);});
-  var cis=["ru","uz","kk","ky","tg","be","uk","az","hy","ka"];
-  var want=langs.some(function(x){return cis.indexOf(x)>=0;})?"ru":"en";
-  if(want!==cur){ location.replace(want==="en"?"/en/":"/"); }
+  if(!saved){
+    var langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""]).map(function(x){return String(x).toLowerCase().slice(0,2);});
+    var cis=["ru","uz","kk","ky","tg","be","uk","az","hy","ka"];
+    var want=langs.some(function(x){return cis.indexOf(x)>=0;})?"ru":"en";
+    if(want!==cur()){ location.replace(urlFor(want)); return; }
+  } else if(saved!==cur()){ location.replace(urlFor(saved)); return; }
+
+  var cache={}, busy=false;
+  function load(l){ if(cache[l]) return Promise.resolve(cache[l]);
+    return fetch(urlFor(l),{credentials:"same-origin"}).then(function(r){ if(!r.ok) throw 0; return r.text(); })
+      .then(function(t){ cache[l]=new DOMParser().parseFromString(t,"text/html"); return cache[l]; }); }
+  function sync(a,b){
+    if(a.nodeType!==b.nodeType||a.nodeName!==b.nodeName) throw 0;
+    if(a.nodeType===3){ if(a.nodeValue!==b.nodeValue) a.nodeValue=b.nodeValue; return; }
+    if(a.nodeType!==1) return;
+    if(a.nodeName==="SCRIPT") return;
+    ["href","alt","aria-current","content","hreflang","title","aria-label"].forEach(function(n){
+      var v=b.getAttribute(n); if(v===null){ if(a.hasAttribute(n)) a.removeAttribute(n); } else if(a.getAttribute(n)!==v) a.setAttribute(n,v); });
+    var ca=a.childNodes, cb=b.childNodes; if(ca.length!==cb.length) throw 0;
+    for(var i=0;i<ca.length;i++) sync(ca[i],cb[i]);
+  }
+  function swap(l,push){
+    if(busy||l===cur()) return; busy=true;
+    load(l).then(function(doc){
+      var root=document.documentElement; root.classList.add("i18n-fade");
+      setTimeout(function(){
+        try{ sync(document.body,doc.body); }catch(e){ location.href=urlFor(l); return; }
+        root.lang=l; document.title=doc.title;
+        var d=doc.querySelector('meta[name="description"]'), m=document.querySelector('meta[name="description"]'); if(d&&m) m.setAttribute("content",d.getAttribute("content"));
+        if(push) history.pushState({l:l},"",urlFor(l)+location.hash);
+        root.classList.remove("i18n-fade"); busy=false;
+      },180);
+    }).catch(function(){ location.href=urlFor(l); });
+  }
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest(".lang a"); if(!a) return;
+    e.preventDefault(); var l=a.getAttribute("data-l"); save(l); swap(l,true);
+  });
+  window.addEventListener("popstate",function(){ var l=location.pathname.indexOf("/en")===0?"en":"ru"; save(l); swap(l,false); });
+  load(cur()==="en"?"ru":"en").catch(function(){});
 })();
 </script>
 </body>
